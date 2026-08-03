@@ -1,0 +1,44 @@
+---
+pagination:
+  data: collections.categories
+  size: 1
+  alias: category
+permalink: /category/{{ category.slug }}/
+layout: base.njk
+eleventyComputed:
+  title: "{{ category.name }}"
+---
+<section class="panel">
+  <h1>{{ category.name }}</h1>
+  <p>
+    {% if category.posts.length == 0 %}
+    No posts in this category yet — stay tuned.
+    {% elif category.posts.length == 1 %}
+    1 post in {{ category.name }}.
+    {% else %}
+    {{ category.posts.length }} posts in {{ category.name }}.
+    {% endif %}
+  </p>
+</section>
+
+<ul class="post-list">
+  {% for post in category.posts %}
+  <li class="post-card panel">
+    <h2 class="post-card__title">
+      <a href="{{ post.url }}">{{ post.data.title }}</a>
+    </h2>
+    <p class="post-card__meta">
+      <time datetime="{{ post.date | isoDate }}">{{ post.date | readableDate }}</time>
+      {% if post.data.categories %}
+      ·
+      {% for cat in post.data.categories %}
+      <a class="cat-pill" href="/category/{{ cat | slugify }}/">{{ cat }}</a>
+      {% endfor %}
+      {% endif %}
+    </p>
+    {% if post.data.summary %}
+    <p class="post-card__summary">{{ post.data.summary }}</p>
+    {% endif %}
+  </li>
+  {% endfor %}
+</ul>

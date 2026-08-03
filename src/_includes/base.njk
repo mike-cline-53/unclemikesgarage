@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if title %}{{ title }} — {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ description or summary or site.description }}">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }} RSS" href="/feed.xml">
+  <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <div class="page">
+    <header class="site-header">
+      <div class="site-header__inner">
+        <p class="site-header__brand">
+          <a href="/">{{ site.title }}</a>
+        </p>
+        <p class="site-header__tagline">{{ site.tagline }}</p>
+      </div>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/"{% if page.url == "/" %} aria-current="page"{% endif %}>Home</a></li>
+          <li><a href="/posts/"{% if page.url == "/posts/" %} aria-current="page"{% endif %}>All Posts</a></li>
+          <li><a href="/about/"{% if page.url == "/about/" %} aria-current="page"{% endif %}>About</a></li>
+          <li><a href="{{ site.youtubeChannel }}" rel="noopener noreferrer" target="_blank">YouTube</a></li>
+          <li><a href="/feed.xml">RSS</a></li>
+        </ul>
+      </nav>
+      <nav class="cat-nav" aria-label="Categories">
+        <ul>
+          {% for cat in collections.categories %}
+          <li>
+            <a href="/category/{{ cat.slug }}/"{% if page.url == "/category/" + cat.slug + "/" %} aria-current="page"{% endif %}>{{ cat.name }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </nav>
+    </header>
+
+    <main class="site-main" id="main">
+      {{ content | safe }}
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <p>
+          <img class="construction" src="/img/under-construction.gif" alt="" width="38" height="38">
+          &copy; {{ site.author }} — {{ site.title }}
+          <img class="construction" src="/img/under-construction.gif" alt="" width="38" height="38">
+        </p>
+        <p class="hit-counter" aria-hidden="true">
+          Visitors:
+          <span class="hit-counter__digits">000042</span>
+        </p>
+        <p class="site-footer__links">
+          <a href="{{ site.youtubeChannel }}" rel="noopener noreferrer" target="_blank">YouTube</a>
+          ·
+          <a href="{{ site.githubRepo }}" rel="noopener noreferrer" target="_blank">GitHub</a>
+          ·
+          <a href="/feed.xml">RSS</a>
+        </p>
+        <p class="site-footer__wink">Best viewed with any browser. Built with Eleventy.</p>
+      </div>
+    </footer>
+  </div>
+  <script src="/js/youtube-lite.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "unclemikesgarage",
+  "version": "1.0.0",
+  "description": "Uncle Mike's Garage — a retro 90s workshop blog",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy",
+    "clean": "rm -rf _site"
+  },
+  "keywords": ["blog", "workshop", "eleventy"],
+  "author": "Uncle Mike",
+  "license": "MIT",
+  "devDependencies": {
+    "@11ty/eleventy": "3.1.6"
+  }
+}

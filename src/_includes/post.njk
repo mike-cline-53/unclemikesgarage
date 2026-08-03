@@ -1,0 +1,41 @@
+---
+layout: base.njk
+---
+<article class="post panel">
+  <header class="post__header">
+    <h1 class="post__title">{{ title }}</h1>
+    <p class="post__meta">
+      <time datetime="{{ date | isoDate }}">{{ date | readableDate }}</time>
+      {% if categories and categories.length %}
+      ·
+      {% for cat in categories %}
+      <a class="cat-pill" href="/category/{{ cat | slugify }}/">{{ cat }}</a>{% if not loop.last %} {% endif %}
+      {% endfor %}
+      {% endif %}
+    </p>
+    {% if summary %}
+    <p class="post__summary">{{ summary }}</p>
+    {% endif %}
+  </header>
+
+  {% if video %}
+  <div class="post__video">
+    {% youtube video %}
+  </div>
+  {% endif %}
+
+  <div class="post__body prose">
+    {{ content | safe }}
+  </div>
+
+  <nav class="post__nav" aria-label="Post navigation">
+    {% set previousPost = collections.posts | getPreviousCollectionItem %}
+    {% set nextPost = collections.posts | getNextCollectionItem %}
+    {% if previousPost %}
+    <a class="post__nav-link" href="{{ previousPost.url }}">&larr; {{ previousPost.data.title }}</a>
+    {% endif %}
+    {% if nextPost %}
+    <a class="post__nav-link post__nav-link--next" href="{{ nextPost.url }}">{{ nextPost.data.title }} &rarr;</a>
+    {% endif %}
+  </nav>
+</article>

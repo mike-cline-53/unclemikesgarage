@@ -1,0 +1,480 @@
+/* Uncle Mike's Garage — retro 90s workshop stylesheet */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: #000;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  line-height: 1.5;
+  background-color: #c0c0c0;
+  /* Pegboard / diamond-plate vibe via CSS pattern — no image download */
+  background-image:
+    radial-gradient(circle at 8px 8px, #8a8a8a 1.5px, transparent 1.6px),
+    linear-gradient(135deg, #b8b8b8 25%, transparent 25%),
+    linear-gradient(225deg, #b8b8b8 25%, transparent 25%),
+    linear-gradient(45deg, #b8b8b8 25%, transparent 25%),
+    linear-gradient(315deg, #b8b8b8 25%, transparent 25%);
+  background-size:
+    16px 16px,
+    20px 20px,
+    20px 20px,
+    20px 20px,
+    20px 20px;
+  background-position:
+    0 0,
+    0 0,
+    10px 0,
+    10px -10px,
+    0 10px;
+}
+
+a {
+  color: #000080;
+}
+
+a:visited {
+  color: #551a8b;
+}
+
+a:hover,
+a:focus-visible {
+  color: #0000ee;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #ffff00;
+  outline-offset: 2px;
+}
+
+.page {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 12px;
+}
+
+/* ----- Header ----- */
+
+.site-header {
+  margin-bottom: 16px;
+}
+
+.site-header__inner {
+  background: #000080;
+  color: #fff;
+  border: 3px outset #c0c0c0;
+  padding: 14px 16px;
+  text-align: center;
+}
+
+.site-header__brand {
+  margin: 0;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1.75rem;
+  font-weight: bold;
+  letter-spacing: 0.02em;
+  text-shadow: 2px 2px 0 #000040;
+}
+
+.site-header__brand a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.site-header__brand a:hover,
+.site-header__brand a:focus-visible,
+.site-header__brand a:visited {
+  color: #ffff99;
+}
+
+.site-header__tagline {
+  margin: 6px 0 0;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #c0c0ff;
+}
+
+.site-nav,
+.cat-nav {
+  background: #d4d0c8;
+  border: 3px outset #c0c0c0;
+  border-top: none;
+  padding: 6px 8px;
+}
+
+.site-nav ul,
+.cat-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+}
+
+.site-nav a,
+.cat-nav a {
+  display: inline-block;
+  padding: 4px 10px;
+  background: #c0c0c0;
+  border: 2px outset #c0c0c0;
+  color: #000;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.site-nav a:visited,
+.cat-nav a:visited {
+  color: #000;
+}
+
+.site-nav a:hover,
+.cat-nav a:hover,
+.site-nav a[aria-current="page"],
+.cat-nav a[aria-current="page"] {
+  border-style: inset;
+  background: #e0e0e0;
+}
+
+.cat-nav {
+  background: #b0b0b0;
+  margin-top: 0;
+}
+
+.cat-nav a {
+  font-size: 0.78rem;
+  background: #dcdcdc;
+}
+
+/* ----- Panels / cards ----- */
+
+.panel {
+  background: #f0f0f0;
+  border: 3px outset #c0c0c0;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+}
+
+.section-title {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1.25rem;
+  color: #000080;
+  margin: 0 0 10px;
+  border-bottom: 2px solid #000080;
+  padding-bottom: 4px;
+}
+
+.hero h1 {
+  margin-top: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  color: #000080;
+}
+
+.btn {
+  display: inline-block;
+  margin: 4px 6px 4px 0;
+  padding: 6px 14px;
+  background: #c0c0c0;
+  border: 3px outset #c0c0c0;
+  color: #000;
+  text-decoration: none;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.btn:visited {
+  color: #000;
+}
+
+.btn:hover,
+.btn:focus-visible {
+  background: #d8d8d8;
+}
+
+.btn:active {
+  border-style: inset;
+}
+
+.btn--ghost {
+  background: #e8e8e8;
+}
+
+/* ----- Post lists ----- */
+
+.post-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.post-card__title {
+  margin: 0 0 4px;
+  font-size: 1.15rem;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.post-card__meta,
+.post__meta {
+  margin: 0 0 8px;
+  font-size: 0.85rem;
+  color: #333;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.post-card__summary,
+.post__summary {
+  margin: 0 0 8px;
+}
+
+.more {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.9rem;
+}
+
+.cat-pill {
+  display: inline-block;
+  padding: 1px 6px;
+  margin-right: 2px;
+  background: #000080;
+  color: #fff !important;
+  text-decoration: none;
+  font-size: 0.75rem;
+  border: 1px outset #4169e1;
+}
+
+.cat-pill:visited {
+  color: #fff !important;
+}
+
+.cat-pill:hover,
+.cat-pill:focus-visible {
+  background: #0000cd;
+}
+
+/* ----- Single post ----- */
+
+.post__title {
+  margin: 0 0 6px;
+  font-family: Georgia, "Times New Roman", serif;
+  color: #000080;
+  font-size: 1.6rem;
+}
+
+.post__video {
+  margin: 12px 0 16px;
+}
+
+.post__nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 20px;
+  padding-top: 12px;
+  border-top: 2px groove #c0c0c0;
+  font-size: 0.9rem;
+}
+
+.post__nav-link--next {
+  margin-left: auto;
+  text-align: right;
+}
+
+.prose h2,
+.prose h3 {
+  color: #000080;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.prose img {
+  max-width: 100%;
+  height: auto;
+  border: 2px inset #c0c0c0;
+}
+
+.prose code {
+  font-family: "Courier New", Courier, monospace;
+  background: #e0e0e0;
+  padding: 1px 4px;
+  border: 1px solid #a0a0a0;
+}
+
+.prose pre {
+  background: #000040;
+  color: #00ff00;
+  padding: 12px;
+  overflow-x: auto;
+  border: 3px inset #c0c0c0;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.85rem;
+}
+
+.prose pre code {
+  background: none;
+  border: none;
+  color: inherit;
+  padding: 0;
+}
+
+.prose blockquote {
+  margin: 1em 0;
+  padding: 8px 14px;
+  border-left: 4px solid #000080;
+  background: #e8e8f0;
+}
+
+/* ----- YouTube lite embed ----- */
+
+.youtube-lite {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border: 3px inset #c0c0c0;
+  overflow: hidden;
+}
+
+.youtube-lite__btn {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+  background: #000;
+  position: relative;
+}
+
+.youtube-lite__thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.youtube-lite__play {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 68px;
+  height: 48px;
+  margin: -24px 0 0 -34px;
+  background: #c00;
+  border: 2px outset #f44;
+  border-radius: 8px;
+}
+
+.youtube-lite__play::after {
+  content: "";
+  position: absolute;
+  left: 26px;
+  top: 12px;
+  border-style: solid;
+  border-width: 12px 0 12px 20px;
+  border-color: transparent transparent transparent #fff;
+}
+
+.youtube-lite__btn:hover .youtube-lite__play,
+.youtube-lite__btn:focus-visible .youtube-lite__play {
+  background: #e00;
+}
+
+.youtube-lite iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ----- Footer ----- */
+
+.site-footer {
+  margin-top: 20px;
+  background: #000080;
+  color: #c0c0ff;
+  border: 3px outset #c0c0c0;
+  text-align: center;
+  padding: 14px 12px;
+  font-size: 0.85rem;
+}
+
+.site-footer a {
+  color: #ffff99;
+}
+
+.site-footer a:visited {
+  color: #ffcc66;
+}
+
+.site-footer__inner p {
+  margin: 6px 0;
+}
+
+.hit-counter {
+  font-family: "Courier New", Courier, monospace;
+}
+
+.hit-counter__digits {
+  display: inline-block;
+  background: #000;
+  color: #0f0;
+  padding: 2px 8px;
+  border: 2px inset #404040;
+  letter-spacing: 0.15em;
+  font-weight: bold;
+}
+
+.construction {
+  vertical-align: middle;
+  image-rendering: pixelated;
+}
+
+.site-footer__wink {
+  font-size: 0.75rem;
+  opacity: 0.85;
+}
+
+/* ----- Responsive ----- */
+
+@media (max-width: 560px) {
+  .site-header__brand {
+    font-size: 1.35rem;
+  }
+
+  .page {
+    padding: 8px;
+  }
+
+  .panel {
+    padding: 12px;
+  }
+
+  .post__title {
+    font-size: 1.35rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .construction {
+    animation: none;
+  }
+}
