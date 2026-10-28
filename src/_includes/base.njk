@@ -8,9 +8,12 @@
   <link rel="stylesheet" href="/css/style.css">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }} RSS" href="/feed.xml">
   <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+  {% if extra_head %}
+  {{ extra_head | safe }}
+  {% endif %}
 </head>
 <body>
-  <div class="page">
+  <div class="page{% if wide %} page--wide{% endif %}">
     <header class="site-header">
       <div class="site-header__inner">
         <p class="site-header__brand">
@@ -22,6 +25,7 @@
         <ul>
           <li><a href="/"{% if page.url == "/" %} aria-current="page"{% endif %}>Home</a></li>
           <li><a href="/posts/"{% if page.url == "/posts/" %} aria-current="page"{% endif %}>All Posts</a></li>
+          <li><a href="/apps/"{% if page.url.startsWith("/apps") %} aria-current="page"{% endif %}>Apps</a></li>
           <li><a href="/about/"{% if page.url == "/about/" %} aria-current="page"{% endif %}>About</a></li>
           <li><a href="{{ site.youtubeChannel }}" rel="noopener noreferrer" target="_blank">YouTube</a></li>
           <li><a href="/feed.xml">RSS</a></li>

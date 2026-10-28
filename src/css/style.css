@@ -64,6 +64,10 @@ button:focus-visible {
   padding: 12px;
 }
 
+.page--wide {
+  max-width: 1080px;
+}
+
 /* ----- Header ----- */
 
 .site-header {
@@ -447,6 +451,48 @@ button:focus-visible {
 .site-footer__wink {
   font-size: 0.75rem;
   opacity: 0.85;
+}
+
+/* ----- 3D viewer / apps ----- */
+
+.viewer-shell {
+  padding: 10px 12px 12px;
+}
+
+.viewer-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  margin-bottom: 8px;
+}
+
+.viewer-toolbar .btn {
+  margin: 0;
+}
+
+.viewer-status {
+  margin: 0;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.8rem;
+  color: #222;
+}
+
+.viewer-frame {
+  position: relative;
+  width: 100%;
+  height: min(72vh, 640px);
+  min-height: 360px;
+  background: #2a2a2a;
+  border: 3px inset #808080;
+  overflow: hidden;
+  touch-action: none;
+}
+
+.viewer-frame canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 /* ----- Responsive ----- */

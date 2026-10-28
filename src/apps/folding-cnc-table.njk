@@ -1,0 +1,74 @@
+---
+layout: base.njk
+title: Folding CNC Table
+description: Interactive 3D model of a parametric folding CNC table. Orbit, pan, and zoom the assembly, then download DXF cut files and the FreeCAD source.
+permalink: /apps/folding-cnc-table/
+wide: true
+extra_head: |
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+    }
+  }
+  </script>
+---
+<article class="panel">
+  <h1 class="post__title">Folding CNC table</h1>
+  <p class="post__meta">CNC · Woodworking · Interactive model</p>
+  <p>
+    A folding cart for a CNC spoilboard. Drag to orbit, scroll or pinch to
+    zoom, right-drag (or two fingers) to pan.
+  </p>
+</article>
+
+<section class="viewer-shell panel">
+  <div class="viewer-toolbar">
+    <button type="button" class="btn" id="folding-table-reset">Reset view</button>
+    <p class="viewer-status" id="folding-table-status">Loading model…</p>
+  </div>
+  <div class="viewer-frame" id="folding-table-viewer"></div>
+</section>
+
+<section class="panel prose">
+  <h2>What's in the model</h2>
+  <p>
+    Default size is a <strong>1220 × 1830 mm</strong> top, <strong>70 mm</strong>
+    thick, on <strong>17 mm</strong> plywood. Length and width scale the folding
+    linkage; plywood thickness is its own input and does not scale with the top.
+  </p>
+  <ul>
+    <li>Black cart: side plates, front/back, bin floor, casters</li>
+    <li>Five 50 mm stretchers — three in the cart, two between the folding legs</li>
+    <li>A pair of folding legs at the second hinge</li>
+  </ul>
+  <p>
+    Rebuild the 3D and DXFs in FreeCAD by editing the knobs at the bottom of
+    <code>folding_table.py</code>.
+  </p>
+</section>
+
+<section class="panel">
+  <h2 class="section-title">Files</h2>
+  <p>
+    <a class="btn" href="/files/folding-cnc-table/dxf/folding_table_sheet.dxf">Review DXF sheet</a>
+    <a class="btn" href="/files/folding-cnc-table/CUT_LIST.txt">Cut list</a>
+    <a class="btn btn--ghost" href="/files/folding-cnc-table/folding_table.py">Parametric script</a>
+    <a class="btn btn--ghost" href="/files/folding-cnc-table/FoldingTable.FCStd">FoldingTable.FCStd</a>
+    <a class="btn btn--ghost" href="/files/folding-cnc-table/TableComplete.FCStd">Source FCStd</a>
+  </p>
+  <p class="post-card__meta">
+    Per-part DXFs:
+    <a href="/files/folding-cnc-table/dxf/table_top.dxf">table top</a> ·
+    <a href="/files/folding-cnc-table/dxf/side_plate.dxf">side plate</a> ·
+    <a href="/files/folding-cnc-table/dxf/front_back.dxf">front/back</a> ·
+    <a href="/files/folding-cnc-table/dxf/base.dxf">base</a> ·
+    <a href="/files/folding-cnc-table/dxf/strut.dxf">strut</a> ·
+    <a href="/files/folding-cnc-table/dxf/leg.dxf">leg</a> ·
+    <a href="/files/folding-cnc-table/dxf/caster.dxf">caster</a> ·
+    <a href="/files/folding-cnc-table/dxf/table_edge.dxf">table edge</a>
+  </p>
+</section>
+
+<script type="module" src="/js/folding-table-viewer.js"></script>

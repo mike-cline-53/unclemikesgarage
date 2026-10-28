@@ -19,6 +19,12 @@ Build once without the server:
 npm run build
 ```
 
+## Apps
+
+Interactive tools live under `src/apps/` and publish to `/apps/`.
+
+The folding CNC table viewer is `/apps/folding-cnc-table/`. CAD backup (FreeCAD, DXF, cut list, parametric script) is in `src/files/folding-cnc-table/`. The glTF model is `src/models/folding-table.glb`.
+
 ## Writing a post
 
 Add a Markdown file under `src/posts/`:

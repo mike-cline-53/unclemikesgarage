@@ -1,0 +1,28 @@
+FOLDING CNC TABLE — CUT LIST
+
+Table top: 1220 x 1830 mm, thickness 70.0 mm
+Plywood: 17.0 mm
+Length scale vs 1830 mm source: 1.0000
+
+QTY  FILE
+1    table_top.dxf          spoilboard rectangle
+1    table_edge.dxf         edge view with hinge holes (drill reference)
+2    side_plate.dxf         left/right; flip one face-down if grain allows
+2    front_back.dxf         identical front and back
+1    base.dxf               bin floor with box-joint tabs
+5    strut.dxf              50 mm stretchers: 3 in the cart, 2 between the folding legs
+2    leg.dxf                folding legs at the second hinge
+4    caster.dxf             85 mm plates
+
+Hardware (from the source model):
+  20 mm hinge pins at the two stations on each side
+  4 mm screws at box joints and struts
+  3 mm screws in caster corners, 4 mm axle holes
+  four swivel casters
+
+DXF export: table_top=ok, table_edge=ok, side_plate=ok, front_back=ok, base=ok, strut=ok, leg=ok, caster=ok, sheet=ok
+
+Rebuild: set table_length_mm / table_width_mm / plywood_thickness_mm at the
+bottom of folding_table.py and run the script in FreeCAD.
+Plywood thickness is independent of length/width; it only changes sheet
+extrusion, box-joint depth, and the span of front/back/base/strut parts.
